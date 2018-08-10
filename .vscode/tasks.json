@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  // "options": {
+  //   "env": {
+  //       "UVA": "447",
+  //       "CH": "1/4",
+  //   }
+  // },
+  "tasks": [
+    {
+      "label": "build cpp",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-ggdb3",
+        "-Wall",
+        "-std=c++11",
+        "${workspaceFolder}/${relativeFile}",
+        "-o",
+        "${workspaceFolder}/build/${fileBasenameNoExtension}"
+      ],
+      "group": {
+          "kind": "build",
+          "isDefault": true
+      }
+    }
+  ]
+}
