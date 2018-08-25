@@ -19,14 +19,15 @@ int main()
   string line;
   bool begin = true;
 
-  getline(cin, line);
-  N = stoi(line);
+  output.reserve(500000);
+  cin >> N;
+  cin.ignore();
 
   while(getline(cin, line))
   {
     if (!line.compare("0") || k++ >= N) break;
 
-    if (!begin) output += "\n", begin = false;
+    if (!begin || (begin = false)) output += "\n";
 
     output += line + "\n";
   }

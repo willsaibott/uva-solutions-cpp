@@ -21,6 +21,7 @@ int main()
   {
     output += line + "\n";
   }
+  
 
   printf("%s", output.c_str());
 
