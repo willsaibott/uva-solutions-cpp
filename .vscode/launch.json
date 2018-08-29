@@ -23,6 +23,9 @@
             { "text": "-enable-pretty-printing", "description": "enable pretty printing", "ignoreFailures": true },
         ]
       },
+      "windows": {
+
+      },
       "preLaunchTask": "build cpp"
     }
   ]
