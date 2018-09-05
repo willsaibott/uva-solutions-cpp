@@ -8,8 +8,10 @@
 #include <cstdlib>
 #include <algorithm>
 #include <iostream>
-#include <stack>
+#include <queue>
 #include <map>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -27,35 +29,39 @@ void populateMap(map<char, int> &m)
   m['T'] = 9;
   m['J'] = 10;
   m['Q'] = 11;
-  m['K'] = -1;
+  m['K'] = 12;
 }
 
 class Game
 {
   private:
-  int index = 0;
+  int index;
   string last;
   string *cards;
 
   public:
-  Game(string last, int index) : last(last), index(index)
-  {
-    this->cards = cards;
-  }
+  Game(string last = "", int index = 0)
+     : index(index), last(last) { }
 
-  static Game runGame(stack<string> cards, map<char, int> &m)
+  static Game runGame(queue<string> clock[],
+                      map<char, int> &m)
   {
-    int index = 0;
-    int end = 0b111111111111;
-    int clock = 0;
-    string last;
+    int index = 0, pointer;
+    queue<string> *st = &clock[12];
+    queue<string> debug[13];
+    string last = "";
 
-    while (end > clock && cards.size())
+    for(int ii = 0; ii < 13; ii++) {
+      debug[ii] = clock[ii];
+    }
+
+    while (st->size())
     {
       index++;
-      last = cards.top();
-      clock |= (1 << m[last[0]]);
-      cards.pop();
+      last = (*st).front();
+      st->pop();
+      pointer = m[last[0]];
+      st = &clock[pointer];
     }
 
     return Game(last, index);
@@ -77,22 +83,23 @@ int main()
 
   while(true)
   {
+    queue<string> clock[13];
     cin >> card[0];
 
     if (card[0] == "#") break;
 
-    stack<string> pile;
+    clock[12].push(card[0]);
 
-    pile.push(card[0]);
-
-    for (int ii = 1; ii < 52; ii++) {
+    for (int ii = 50; ii >= 0; ii--) {
       cin >> card[ii];
-      pile.push(card[ii]);
+      clock[ii % 13].push(card[ii]);
     }
 
-    Game game = Game::runGame(pile, indexMap);
+    Game game = Game::runGame(clock, indexMap);
+    ostringstream ss;
+    ss << setw(2) << setfill('0') << game.getIndex();
 
-    output += to_string(game.getIndex()) + "," + game.getLast() + "/n";
+    output +=  ss.str() + "," + game.getLast() + "\n";
   }
 
   printf("%s", output.c_str());

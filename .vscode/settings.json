@@ -32,6 +32,7 @@
     "tuple": "cpp",
     "typeinfo": "cpp",
     "utility": "cpp",
-    "cstring": "cpp"
+    "cstring": "cpp",
+    "map": "cpp"
   }
 }
