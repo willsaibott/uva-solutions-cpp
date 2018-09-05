@@ -1,5 +1,6 @@
 {
   "files.associations": {
+    "data": "javascript",
     "istream": "cpp",
     "cstdio": "cpp",
     "array": "cpp",
@@ -32,6 +33,8 @@
     "tuple": "cpp",
     "typeinfo": "cpp",
     "utility": "cpp",
-    "cstring": "cpp"
+    "cstring": "cpp",
+    "optional": "cpp",
+    "string_view": "cpp"
   }
 }
