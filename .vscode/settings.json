@@ -36,6 +36,10 @@
     "cstring": "cpp",
     "map": "cpp",
     "optional": "cpp",
-    "string_view": "cpp"
+    "string_view": "cpp",
+    "iomanip": "cpp",
+    "list": "cpp",
+    "climits": "cpp",
+    "ctime": "cpp"
   }
 }

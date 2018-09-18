@@ -1,0 +1,13 @@
+5
+service.stateu.edu   10 tiny.stateu.edu
+info.stateu.edu	0       bigone.stateu.edu
+                        10      tiny.stateu.edu
+service.stateu.edu   5     bigone.stateu.edu
+*.smallu.edu    10      service.stateu.edu
+A    alpha.cs.smallu.edu
+A    info.stateu.edu
+D    bigone.stateu.edu
+D    tiny.stateu.edu
+A    info.stateu.edu
+A    nowhere.com
+X

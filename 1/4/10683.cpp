@@ -8,38 +8,46 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include <string>
+#include <cmath>
 
 using namespace std;
 
 typedef unsigned long long ull;
 
-#define SECOND  100
+#define CENT    10
+#define SECOND  100 * CENT
 #define HOUR  (MIN * 60)
 #define MIN  (SECOND * 60)
 #define MAX  24.0 * HOUR
-#define FACTOR  1000000
+#define FACTOR  10000000
 
 int main()
 {
-  ull hour, minute, sec, cent;
   ull sUnits;
   string output = "";
   string line;
   ull value;
+  const ull second = SECOND;
+  const ull cent = CENT;
+  const ull hour = HOUR;
+  const ull minute = MIN;
+  const double max = MAX;
+  const double rate = FACTOR / max;
+  char s[10];
 
-  output.reserve(500000);
+  output.reserve(50000);
 
   while(getline(cin, line))
   {
-    stringstream ss;
-    hour = stoi(line.substr(0, 2));
-    minute = stoi(line.substr(2, 4));
-    sec = stoi(line.substr(4, 6));
-    cent = stoi(line.substr(6));
-    sUnits = hour * HOUR + minute * MIN + sec * SECOND + cent;
-    value = (sUnits / (MAX)) * FACTOR;
-    ss << std::setw(7) << std::setfill('0') << value << "\n";
-    output += ss.str();
+    sUnits = ((line[0] - '0') * 10 + (line[1] - '0')) * hour +
+             ((line[2] - '0') * 10 + (line[3] - '0')) * minute +
+             ((line[4] - '0') * 10 + (line[5] - '0')) * second +
+             ((line[6] - '0') * 10 + (line[7] - '0')) * cent;
+
+    value = (sUnits * rate);
+    sprintf(s, "%07llu\n", value);
+    output += s;
   }
 
   printf("%s", output.c_str());
