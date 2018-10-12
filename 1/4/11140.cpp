@@ -5,20 +5,11 @@
 **/
 
 #include <cstdio>
-#include <cstdlib>
-#include <algorithm>
 #include <iostream>
-#include <map>
 #include <vector>
 #include <utility>
 #include <string>
-#include <iomanip>
-#include <set>
-#include <queue>
-#include <stack>
-#include <sstream>
 #include <cmath>
-#include <climits>
 
 using namespace std;
 
@@ -36,37 +27,36 @@ std::pair<T,U> max(const pair<T, U> &p1, const pair<T, U> &p2)
 
 bool fit(vector<string> &board, vector<string> &piece)
 {
-  if (!piece.size() || !piece[0].size()) return false;
+  if (!piece.size() || !piece[0].size()) return true;
 
-  bool doesFit;
-  int max = board[0].size() - piece[0].size();
-  int max2 = board.size() - piece.size();
-
-  for(int jj = 0; jj < board[0].size(); jj++) {
-    for(int ii = 0; ii < board.size(); ii++) {
-      doesFit = true;
+  for(int jj = 0; jj < (int)board[0].size(); jj++) {
+    for(int ii = 0; ii < (int)board.size(); ii++) {
+      int count = 0;
 
       for(int yy = 0;
-          yy < (int)piece.size() && (yy + ii) < board.size();
+          yy < (int)piece.size() && (yy + ii) < (int)board.size();
           yy++)
       {
         for(int xx = 0;
-            xx < (int)piece[0].size() && (xx + jj) < board[0].size(); xx++)
+            xx < (int)piece[0].size() && (xx + jj) < (int)board[0].size();
+            xx++)
         {
           if (board[ii + yy][jj + xx] == '.' && piece[yy][xx] == '*')
           {
-            doesFit = false;
             break;
+          } else
+          {
+            count++;
           }
         }
-        if (!doesFit) break;
       }
 
-      if (doesFit) return true;
+      if (count >= (int)(piece.size() * piece[0].size()))
+        return true;
     }
   }
 
-  return doesFit;
+  return false;
 }
 
 vector<string> getPiece(vector<string> &container)
@@ -102,7 +92,6 @@ int main()
   int N;
   string output = "";
   string line;
-  bool begin = true;
 
   output.reserve(500000);
   cin >> N;
@@ -112,9 +101,6 @@ int main()
   {
     vector<string> board;
     cin >> m >> n >> s;
-
-
-    if (!begin || (begin = false)) output += "\n";
 
     for(int ii = 0; ii < m; ii++) {
       cin >> line;
@@ -134,7 +120,7 @@ int main()
 
       output += fit(board, piece) ? "Yes\n" : "No\n";
     }
-
+    output += "\n";
   }
 
   printf("%s", output.c_str());

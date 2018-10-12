@@ -5,43 +5,42 @@
 **/
 
 #include <cstdio>
-#include <cstdlib>
 #include <algorithm>
 #include <iostream>
-#include <map>
-#include <vector>
-#include <utility>
 #include <string>
-#include <iomanip>
-#include <set>
-#include <queue>
-#include <stack>
 #include <sstream>
-#include <cmath>
 
 using namespace std;
 
 int main()
 {
-  int k = 0;
-  int N;
   string output = "";
   string line;
-  bool begin = true;
 
   output.reserve(500000);
-  cin >> N;
-  cin.ignore();
 
-  while(k++ < N && !cin.eof())
+  while(getline(cin, line))
   {
-    int n;
-    cin >> n;
+    string word;
+    stringstream ss(line);
 
-    if (!begin || (begin = false)) output += "\n";
-    if (!n) break;
+    for (int ii = 0; ii < (int)line.size(); ii++)
+    {
+      if (line[ii] == ' ')
+      {
+        output += " ";
+      } else
+      {
+        ss >> word;
+        reverse(word.begin(), word.end());
+        output += word;
+        ii += word.size();
+        if (!ss.eof())
+          output += " ";
+      }
+    }
 
-    output += line + "\n";
+    output += "\n";
   }
 
   printf("%s", output.c_str());
