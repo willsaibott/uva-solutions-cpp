@@ -1,0 +1,22 @@
+"a" by "1"
+"a" by "1"
+"b" by "2"
+"c" by "3"
+"d" by "4"
+"e" by "5"
+"f" by "6"
+"g" by "7"
+"h" by "8"
+"i" by "9"
+END
+BORROW "g"
+BORROW "b"
+BORROW "f"
+BORROW "a"
+RETURN "f"
+RETURN "g"
+SHELVE
+RETURN "a"
+RETURN "b"
+SHELVE
+END

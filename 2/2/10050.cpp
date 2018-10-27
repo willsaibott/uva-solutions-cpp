@@ -5,19 +5,9 @@
 **/
 
 #include <cstdio>
-#include <cstdlib>
-#include <algorithm>
 #include <iostream>
-#include <map>
 #include <vector>
-#include <utility>
-#include <string>
-#include <iomanip>
 #include <set>
-#include <queue>
-#include <stack>
-#include <sstream>
-#include <cmath>
 
 using namespace std;
 
@@ -27,7 +17,6 @@ int main()
   int N;
   string output = "";
   string line;
-  bool begin = true;
 
   output.reserve(500000);
   cin >> N;
@@ -35,13 +24,29 @@ int main()
 
   while(k++ < N && !cin.eof())
   {
-    int n;
-    cin >> n;
+    int days, nHartals;
+    set<int> parties;
+    cin >> days >> nHartals;
 
-    if (!begin || (begin = false)) output += "\n";
-    if (!n) break;
+    vector<int> hartals(nHartals);
 
-    output += line + "\n";
+    for (auto h = hartals.begin();
+              h != hartals.end();
+              h++)
+    {
+      cin >> *h;
+
+      for (int ii = *h; ii <= days; ii+= *h)
+      {
+        int rest = (ii) % 7;
+        if (rest != 6 && rest)
+        {
+          parties.insert(ii);
+        }
+      }
+    }
+
+    output += to_string(parties.size()) + "\n";
   }
 
   printf("%s", output.c_str());

@@ -40,6 +40,7 @@
     "iomanip": "cpp",
     "list": "cpp",
     "climits": "cpp",
-    "ctime": "cpp"
+    "ctime": "cpp",
+    "algorithm": "cpp"
   }
 }
