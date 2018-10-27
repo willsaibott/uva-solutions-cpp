@@ -1,23 +1,25 @@
 /**
- * Guilherme de Novais Bordignon - UVA Judge Online Solution ${filename}
+ * Guilherme de Novais Bordignon - UVA Judge Online Solution
  *
  * This is a template file for C++ Solutions of UVA Judge Online problems
 **/
 
 #include <cstdio>
-#include <cstdlib>
-#include <algorithm>
 #include <iostream>
-#include <map>
+#include <algorithm>
 #include <vector>
 #include <utility>
-#include <string>
-#include <iomanip>
 #include <set>
+#include <map>
 #include <queue>
 #include <stack>
 #include <sstream>
 #include <cmath>
+#include <climits>
+#include <cstdlib>
+#include <string>
+#include <iomanip>
+
 
 using namespace std;
 
