@@ -7,18 +7,8 @@
 #include <cstdio>
 #include <iostream>
 #include <algorithm>
-#include <vector>
-#include <utility>
 #include <set>
-#include <map>
-#include <queue>
-#include <stack>
 #include <sstream>
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <string>
-#include <iomanip>
 
 
 using namespace std;
@@ -108,13 +98,13 @@ int main()
         Person(title, firstName, familyName, address,
                home, work, campus, department));
     }
+  }
 
-    for (auto person = people.begin();
-         person != people.end();
-         person++)
-    {
-      output += person->to_string();
-    }
+  for (auto person = people.begin();
+        person != people.end();
+        person++)
+  {
+    output += person->to_string();
   }
 
   printf("%s", output.c_str());

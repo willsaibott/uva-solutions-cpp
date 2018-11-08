@@ -1,24 +1,14 @@
 /**
  * Guilherme de Novais Bordignon - UVA Judge Online Solution
  *
- * This is a template file for C++ Solutions of UVA Judge Online problems
+ * 11173 - Grey Codes
 **/
 
 #include <cstdio>
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <utility>
-#include <set>
-#include <map>
-#include <queue>
-#include <stack>
-#include <sstream>
 #include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <string>
-#include <iomanip>
 
 using namespace std;
 typedef unsigned char byte;
@@ -31,7 +21,6 @@ int main()
   int N;
   string output = "";
   string line;
-  bool begin = true;
 
   output.reserve(500000);
   cin >> N;
@@ -39,13 +28,12 @@ int main()
 
   while(k++ < N && !cin.eof())
   {
-    int n;
-    cin >> n;
+    ull n, position;
+    cin >> n >> position;
 
-    if (!begin || (begin = false)) output += "\n";
-    if (!n) break;
+    ull greyCode = position ^ (position >> 1);
 
-    output += line + "\n";
+    output += to_string(greyCode) + "\n";
   }
 
   printf("%s", output.c_str());
