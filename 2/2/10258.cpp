@@ -37,7 +37,8 @@ class Team {
           this->solvedAt[problem] = min(timestamp, this->solvedAt[problem]);
           break;
         case 'I':
-          this->problem[problem].push_back(timestamp);
+          if (timestamp <= this->solvedAt[problem] && !solved[problem])
+            this->problem[problem].push_back(timestamp);
           break;
         case 'R':
         case 'U':
@@ -56,7 +57,7 @@ class Team {
           time += solvedAt[ii];
           for (auto it = problem[ii].begin(); it != problem[ii].end(); it++)
           {
-            time += 20 * (*it < solvedAt[ii]);
+            time += 20 * (*it <= solvedAt[ii]);
           }
           problems++;
         }
@@ -110,7 +111,7 @@ int main()
       teams[ii] = Team(ii+1);
     }
 
-    while (true)
+    while (!cin.eof())
     {
       getline(cin, line);
       if (line == "") break;
