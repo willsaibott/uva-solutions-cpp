@@ -4,7 +4,7 @@ int main(int argc,char** argv){
   FILE *fp;
   char*buffer=new char[10000];
   buffer[0]=EOF;
-  fp=fopen(argv[0],"r");
+  fp=fopen(__FILE__,"r");
   do{
     buffer++;
     *buffer=getc(fp);

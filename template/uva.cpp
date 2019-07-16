@@ -2,16 +2,18 @@
  * Guilherme de Novais Bordignon - UVA Judge Online Solution
  *
  * This is a template file for C++ Solutions of UVA Judge Online problems
-**/
+ */
 
 #include <cstdio>
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <bitset>
 #include <utility>
 #include <set>
 #include <map>
 #include <queue>
+#include <deque>
 #include <stack>
 #include <sstream>
 #include <cmath>
@@ -30,8 +32,8 @@ int main()
   int k = 0;
   int N;
   string output = "";
-  string line;
   bool begin = true;
+  string line;
 
   output.reserve(500000);
   cin >> N;
