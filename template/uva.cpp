@@ -39,7 +39,7 @@ int main()
   cin >> N;
   cin.ignore();
 
-  while(k++ < N && !cin.eof())
+  while(k++ < N && !cin.eof() && cin.good())
   {
     int n;
     cin >> n;

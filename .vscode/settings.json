@@ -41,6 +41,11 @@
     "list": "cpp",
     "climits": "cpp",
     "ctime": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "bitset": "cpp",
+    "chrono": "cpp",
+    "codecvt": "cpp",
+    "filesystem": "cpp",
+    "ratio": "cpp"
   }
 }
