@@ -1,7 +1,7 @@
 /**
  * Guilherme de Novais Bordignon - UVA Judge Online Solution
+ * uhunt page: https://uhunt.onlinejudge.org/id/899065
  *
- * This is a template file for C++ Solutions of UVA Judge Online problems
  */
 
 #include <cstdio>
