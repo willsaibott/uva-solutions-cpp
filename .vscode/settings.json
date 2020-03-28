@@ -46,6 +46,13 @@
     "chrono": "cpp",
     "codecvt": "cpp",
     "filesystem": "cpp",
-    "ratio": "cpp"
+    "ratio": "cpp",
+    "cstdarg": "cpp",
+    "cstddef": "cpp",
+    "atomic": "cpp",
+    "memory": "cpp",
+    "memory_resource": "cpp",
+    "set": "cpp",
+    "string": "cpp"
   }
 }

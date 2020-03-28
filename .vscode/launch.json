@@ -10,7 +10,7 @@
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
-      "args": ["<", "input/2/2/${fileBasenameNoExtension}", ">", "output/2/2/${fileBasenameNoExtension}"],
+      "args": ["<", "input/2/3/${fileBasenameNoExtension}", ">", "output/2/3/${fileBasenameNoExtension}"],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],

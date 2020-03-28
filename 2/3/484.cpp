@@ -27,37 +27,37 @@ typedef unsigned char byte;
 typedef unsigned long long ull;
 typedef long long ll;
 
-
 class Solution {
+  std::vector<int64_t>      _numbers;
+  std::map<int64_t, size_t> _dictionary;
+
+
   public:
-  std::string solve() { return ""; };
+
+  void add(const int64_t& key) {
+    if ((++(_dictionary[key])) <= 1) {
+      _numbers.push_back(key);
+    }
+  }
+
+  void
+  solve(std::string&output) {
+    for (const auto& number : _numbers) {
+      output += std::to_string(number) + " " + std::to_string(_dictionary[number]) + "\n";
+    }
+  };
 };
 
 
-int main()
-{
-  int k = 0;
-  int N;
+int main() {
   string output = "";
-  bool begin = true;
-  string line;
-
-  output.reserve(500000);
-  cin >> N;
-  cin.ignore();
-
-  while(k++ < N && !cin.eof() && cin.good())
-  {
-    Solution solution;
-    int n;
-    cin >> n;
-
-    if (!begin || (begin = false)) output += "\n";
-    if (!n) break;
-
-    output += solution.solve() + "\n";
+  Solution solution;
+  int64_t number;
+  while(cin >> number) {
+    solution.add(number);
   }
 
+  solution.solve(output);
   printf("%s", output.c_str());
 
   return(0);
