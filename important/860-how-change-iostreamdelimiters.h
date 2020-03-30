@@ -1,5 +1,6 @@
-struct custom_delimiter_t : std::ctype<char> {
-  custom_delimiter_t() : std::ctype<char>(get_table()) {}
+/**
+ * struct word_splliter_t : std::ctype<char> {
+  word_splliter_t() : std::ctype<char>(get_table()) {}
   static mask const* get_table() {
     static mask rc[table_size];
     rc[',']  = std::ctype_base::space;
@@ -19,4 +20,6 @@ struct custom_delimiter_t : std::ctype<char> {
 
 int main() {
 ...
-  cin.imbue(locale(cin.getloc(), new custom_delimiter_t{}));
+  cin.imbue(locale(cin.getloc(), new word_splliter_t{}));
+
+*/

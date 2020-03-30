@@ -53,6 +53,7 @@
     "memory": "cpp",
     "memory_resource": "cpp",
     "set": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "unordered_set": "cpp"
   }
 }

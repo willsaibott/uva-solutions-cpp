@@ -12,6 +12,10 @@
 #include <utility>
 #include <set>
 #include <map>
+#include <unordered_map>
+#include <unordered_set>
+#include <list>
+#include <memory>
 #include <queue>
 #include <deque>
 #include <stack>
