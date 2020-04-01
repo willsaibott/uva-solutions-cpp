@@ -39,20 +39,39 @@ template<typename T, typename... Args>
 }
 
 class Solution {
+  std::priority_queue<ll, std::vector<ll>, std::greater<ll>> queue;
+  ull cost{ 0 };
+
   public:
-  std::string solve() { return ""; };
+
+  void add(ll value) {
+    queue.push(value);
+  }
+
+  void solve() {
+    ull accumulated = 0;
+    while (queue.size() > 1) {
+      auto first  { queue.top() }; queue.pop();
+      auto second { queue.top() }; queue.pop();
+      accumulated = first + second;
+      cost += accumulated;
+      queue.push(accumulated);
+    }
+    std::cout << cost << "\n";
+  };
 };
 
 int main() {
-  string line;
-  size_t N;
-  cin >> N;
-  cin.ignore();
-
-  for (size_t kk = 1; kk <= N; kk++) {
+  size_t numbers;
+  ll value;
+  while(std::cin >> numbers && numbers) {
     Solution solution;
-    std::cout << solution.solve() + "\n";
+    for (size_t ii = 0; ii < numbers; ii++) {
+      solution.add((std::cin >> value, value));
+    }
+    solution.solve();
   }
+
 
   return(0);
 }
