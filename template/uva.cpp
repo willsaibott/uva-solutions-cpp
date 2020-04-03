@@ -4,27 +4,7 @@
  *
  */
 
-#include <cstdio>
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <bitset>
-#include <utility>
-#include <set>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <list>
-#include <memory>
-#include <queue>
-#include <deque>
-#include <stack>
-#include <sstream>
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <string>
-#include <iomanip>
+#include <bits/stdc++.h>
 
 using namespace std;
 typedef unsigned char byte;
