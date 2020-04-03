@@ -6,11 +6,34 @@
   "configurations": [
 
     {
-      "name": "Debugger C++",
+      "name": "Debugger C++ for chapter 2.3",
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
       "args": ["<", "input/2/3/${fileBasenameNoExtension}", ">", "output/2/3/${fileBasenameNoExtension}"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "linux": {
+        "MIMode": "gdb",
+        "setupCommands": [
+            { "text": "-enable-pretty-printing", "description": "enable pretty printing", "ignoreFailures": true },
+        ]
+      },
+      "windows": {
+
+      },
+      "preLaunchTask": "build cpp"
+    },
+    {
+      "name": "Debugger C++ for chapter 2.4",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "args": ["<", "input/2/4/${fileBasenameNoExtension}", ">", "output/2/4/${fileBasenameNoExtension}"],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],

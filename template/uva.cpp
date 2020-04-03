@@ -44,10 +44,10 @@ class Solution {
 };
 
 int main() {
-  string line;
-  size_t N;
-  cin >> N;
-  cin.ignore();
+  std::string line;
+  std::size_t N;
+  std::cin >> N;
+  std::cin.ignore();
 
   for (size_t kk = 1; kk <= N; kk++) {
     Solution solution;

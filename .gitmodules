@@ -1,0 +1,3 @@
+[submodule "advanced_library_cpp"]
+	path = advanced_library_cpp
+	url = git@github.com:willsaibott/advanced_library_cpp.git
