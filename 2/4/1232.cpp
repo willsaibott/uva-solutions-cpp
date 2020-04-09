@@ -85,53 +85,84 @@ class Solution {
     build_node(skyline.root());
   }
 
+  /**
+   * build left and right node from an existent node which:
+   * -Left child:
+   *    start = parent.start
+   *    end   = (parent.start+ parent.end) / 2
+   * - Right child:
+   *    start = (parent.start+ parent.end) / 2
+   *    end   = parent.end
+   *
+   * Complexity: k * log2 k (k = difference between the maximum right and
+   *  the minimum left)
+   */
   void
   build_node(node_t& node) {
     range_t& range{ node.get() };
     if (range.length() > 1) {
-      auto half = (range.start + range.end) / 2;
-      node.add_left(range_t{ range.start, half, 0, true });
-      node.add_right(range_t{ half, range.end, 0, true });
+      auto center = (range.start + range.end) / 2;
+      node.add_left(range_t{ range.start, center, 0, true });
+      node.add_right(range_t{ center, range.end, 0, true });
       build_node(node.left());
       build_node(node.right());
     }
   }
 
-  void fill(node_t& node, size_t height) {
-    range_t& range  = node.get();
-    range.maxheight = range.minheight = height;
-    range.full      = true;
-    if (range.length() > 1) {
-      fill(node.left(),  height);
-      fill(node.right(), height);
-    }
-  }
-
+  /**
+   * Query
+   */
   void
-  find(node_t& node, size_t left, size_t right, size_t height) {
+  query_and_range_update(node_t& node, size_t left, size_t right, size_t height) {
     range_t& range = node.get();
+    // if the height is loqer than the minimium height of the node, give up
     if (height < range.minheight)               { return; }
+    // if the range is full, and the height is lower than the maxheight of node
+    // there will be no overlap, so give up
     if (range.full && height < range.maxheight) { return; }
 
     if (range.start == left && range.end == right && (range.full || height >= range.maxheight)) {
+      // Perfect match for range: calculate overlap and update the maxheight and
+      // minimum height, and flag it as "full"
       overlaps        += range.overlap(height);
-      if (height > range.minheight) {
-        fill(node, std::max(range.maxheight, height));
-      }
+      range.maxheight = range.minheight = height;
+      range.full      = true;
     }
     else if (range.length() > 1) {
       range_t& rightchild { *(node.right()) };
       range_t& leftchild { *(node.left()) };
 
+      // lazy update on child nodes. The minimum height of the parent is inherit
+      // from children, and they should be propagated, but it wasn't for performance
+      // reasons, it would require to visist all children nodes in all update
+      // so, when visiting a child, guarantee the minimum height is at least
+      // the minimum height of the parent, and the maximum height is not loqer
+      // than it's own minimum height
+      leftchild.minheight  = std::max(leftchild.minheight,  range.minheight);
+      leftchild.maxheight  = std::max(leftchild.maxheight,  leftchild.minheight);
+      rightchild.minheight = std::max(rightchild.minheight, range.minheight);
+      rightchild.maxheight = std::max(rightchild.maxheight, rightchild.minheight);
+      leftchild.full  |= range.full;
+      rightchild.full |= range.full;
+
       auto center = range.center();
       if (left < center) {
-        find(node.left(), left, std::min(center, right), height);
+        // split query range in left node
+        query_and_range_update(node.left(),
+                               left,
+                               std::min(center, right),
+                               height);
       }
 
       if (right > center) {
-        find(node.right(), std::max(left, center), right, height);
+        // split query range in right node
+        query_and_range_update(node.right(),
+                               std::max(left, center),
+                               right,
+                               height);
       }
 
+      // updates the parent node:
       range.maxheight = std::max(leftchild.maxheight, rightchild.maxheight);
       range.minheight = std::min(leftchild.minheight, rightchild.minheight);
       range.full      = range.maxheight == range.minheight;
@@ -140,7 +171,10 @@ class Solution {
 
   void
   add_building(const range_t& range) {
-    find(skyline.root(), range.start, range.end, range.height);
+    query_and_range_update(skyline.root(),
+                           range.start,
+                           range.end,
+                           range.height);
   }
 
   std::string
@@ -168,6 +202,8 @@ int main() {
         buildings.push_back(r);
       }
 
+      // Restrain segment tree by the min left and the max right to make it more
+      // efficent (memory and performance)
       Solution solution{ min_left, max_right, number_of_buildings };
 
       for (size_t ii = 0; ii < number_of_buildings; ii++) {
