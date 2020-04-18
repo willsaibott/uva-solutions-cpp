@@ -35,6 +35,7 @@ class Solution {
 };
 
 int main() {
+  std::ios_base::sync_with_stdio(false);
   std::string line;
   std::size_t N = getinput();
 
