@@ -73,6 +73,17 @@
     "shared_mutex": "cpp",
     "thread": "cpp",
     "typeindex": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "cassert": "cpp",
+    "ccomplex": "cpp",
+    "cerrno": "cpp",
+    "cfloat": "cpp",
+    "ciso646": "cpp",
+    "cstdalign": "cpp",
+    "cstdbool": "cpp",
+    "ctgmath": "cpp",
+    "ios": "cpp",
+    "locale": "cpp",
+    "stack": "cpp"
   }
 }
