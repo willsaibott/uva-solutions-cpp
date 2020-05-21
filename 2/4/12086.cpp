@@ -3,9 +3,8 @@
  * uhunt page: https://uhunt.onlinejudge.org/id/899065
  *
  */
-
 #include <bits/stdc++.h>
-#include "../../advanced_library_cpp/AdvancedLibraryCpp/fenwick_tree.h"
+#include "../../advanced_library_cpp/AdvancedLibraryCpp/structures/fenwick_tree.h"
 
 using namespace std;
 typedef unsigned char byte;
@@ -31,7 +30,7 @@ inline std::string getln() {
 }
 
 class Solution {
-  using tree_t = advanced::fenwick_tree_t<int>;
+  using tree_t = advanced::structures::fenwick_tree_t<int>;
 
   tree_t                     resistance_range;
   std::vector<int>           potentiometers;

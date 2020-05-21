@@ -2,9 +2,100 @@
   // Use IntelliSense to learn about possible attributes.
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.2",
+  "version": "0.3.0",
   "configurations": [
+    {
+      "name": "Debugger C++ for chapter 1.1",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "args": ["<", "input/1/1/${fileBasenameNoExtension}", ">", "output/1/1/${fileBasenameNoExtension}"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "linux": {
+        "MIMode": "gdb",
+        "setupCommands": [
+            { "text": "-enable-pretty-printing", "description": "enable pretty printing", "ignoreFailures": true },
+        ]
+      },
+      "windows": {
 
+      },
+      "preLaunchTask": "build cpp"
+    },
+    {
+      "name": "Debugger C++ for chapter 1.4",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "args": ["<", "input/1/4/${fileBasenameNoExtension}", ">", "output/1/4/${fileBasenameNoExtension}"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "linux": {
+        "MIMode": "gdb",
+        "setupCommands": [
+            { "text": "-enable-pretty-printing", "description": "enable pretty printing", "ignoreFailures": true },
+        ]
+      },
+      "windows": {
+
+      },
+      "preLaunchTask": "build cpp"
+    },
+    {
+      "name": "Debugger C++ for chapter 1.5",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "args": ["<", "input/1/5/${fileBasenameNoExtension}", ">", "output/1/5/${fileBasenameNoExtension}"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "linux": {
+        "MIMode": "gdb",
+        "setupCommands": [
+            { "text": "-enable-pretty-printing", "description": "enable pretty printing", "ignoreFailures": true },
+        ]
+      },
+      "windows": {
+
+      },
+      "preLaunchTask": "build cpp"
+    },
+    {
+      "name": "Debugger C++ for chapter 2.2",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "args": ["<", "input/2/2/${fileBasenameNoExtension}", ">", "output/2/2/${fileBasenameNoExtension}"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "linux": {
+        "MIMode": "gdb",
+        "setupCommands": [
+            { "text": "-enable-pretty-printing", "description": "enable pretty printing", "ignoreFailures": true },
+        ]
+      },
+      "windows": {
+
+      },
+      "preLaunchTask": "build cpp"
+    },
     {
       "name": "Debugger C++ for chapter 2.3",
       "type": "cppdbg",
@@ -34,6 +125,98 @@
       "request": "launch",
       "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
       "args": ["<", "input/2/4/${fileBasenameNoExtension}", ">", "output/2/4/${fileBasenameNoExtension}"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "linux": {
+        "MIMode": "gdb",
+        "setupCommands": [
+            { "text": "-enable-pretty-printing", "description": "enable pretty printing", "ignoreFailures": true },
+        ]
+      },
+      "windows": {
+
+      },
+      "preLaunchTask": "build cpp"
+    },
+    {
+      "name": "Debugger C++ for chapter 3.2",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "args": ["<", "input/3/2/${fileBasenameNoExtension}", ">", "output/3/2/${fileBasenameNoExtension}"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "linux": {
+        "MIMode": "gdb",
+        "setupCommands": [
+            { "text": "-enable-pretty-printing", "description": "enable pretty printing", "ignoreFailures": true },
+        ]
+      },
+      "windows": {
+
+      },
+      "preLaunchTask": "build cpp"
+    },
+    {
+      "name": "Debugger C++ for chapter 3.3",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "args": ["<", "input/3/3/${fileBasenameNoExtension}", ">", "output/3/3/${fileBasenameNoExtension}"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "linux": {
+        "MIMode": "gdb",
+        "setupCommands": [
+            { "text": "-enable-pretty-printing", "description": "enable pretty printing", "ignoreFailures": true },
+        ]
+      },
+      "windows": {
+
+      },
+      "preLaunchTask": "build cpp"
+    },
+    {
+      "name": "Debugger C++ for chapter 3.4",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "args": ["<", "input/3/4/${fileBasenameNoExtension}", ">", "output/3/4/${fileBasenameNoExtension}"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "linux": {
+        "MIMode": "gdb",
+        "setupCommands": [
+            { "text": "-enable-pretty-printing", "description": "enable pretty printing", "ignoreFailures": true },
+        ]
+      },
+      "windows": {
+
+      },
+      "preLaunchTask": "build cpp"
+    },
+    {
+      "name": "Debugger C++ for chapter 3.5",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "args": ["<", "input/3/5/${fileBasenameNoExtension}", ">", "output/3/5/${fileBasenameNoExtension}"],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
