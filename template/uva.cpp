@@ -20,12 +20,12 @@ template<typename T, typename... Args>
 
 template <class T = size_t>
 T getinput() {
-  T input;
+  static T input;
   return (std::cin >> input, std::cin.ignore(), input);
 }
 
-inline std::string getln() {
-  std::string line;
+inline const std::string& getln() {
+  static std::string line;
   return (std::getline(std::cin, line), line);
 }
 
