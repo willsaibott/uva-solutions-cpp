@@ -34,16 +34,16 @@ struct DynamicProgramming {
 
   /// @brief if shortest is in the middle, when we "exclude" myself, to recursively calculate the next combinations,
   /// we have (N-1), P and Q remains the same becausethe shortest can be in any position from next to the end.
-  static const std::int64_t shortestInMiddle = (N >= 2) ? DynamicProgramming<N - 1, P, Q>::combinations * (N - 2) : 0;
+  static const std::int64_t whenShortestInMiddle = (N >= 2) ? DynamicProgramming<N - 1, P, Q>::combinations * (N - 2) : 0;
 
   /// @brief if shortest is the first, when we "exclude" myself, to recursively calculate the next combinations, we have (P - 1) and (N-1)
-  static const std::int64_t shortestAtFirst = (N >= 2) ? DynamicProgramming<N - 1, P - 1, Q>::combinations : 0;
+  static const std::int64_t whenIamShortestAtFirst = (N >= 2) ? DynamicProgramming<N - 1, P - 1, Q>::combinations : 0;
 
   /// @brief if shortest is the last, when we "exclude" myself, to recursively calculate the next combinations, we have (Q - 1) and (N-1)
-  static const std::int64_t shortestAtEnd = (N >= 2) ? DynamicProgramming<N - 1, P, Q - 1>::combinations : 0;
+  static const std::int64_t whenIamShortestAtEnd = (N >= 2) ? DynamicProgramming<N - 1, P, Q - 1>::combinations : 0;
 
   /// @brief  Sum of combinations when consifering the next people in queue (Excluding myself)
-  static const std::int64_t combinations = shortestInMiddle + shortestAtFirst + shortestAtEnd;
+  static const std::int64_t combinations = whenShortestInMiddle + whenIamShortestAtFirst + whenIamShortestAtEnd;
 };
 
 template <>
