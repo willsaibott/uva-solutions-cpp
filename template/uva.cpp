@@ -19,7 +19,7 @@ template<typename T, typename... Args>
 }
 
 template <class T = size_t>
-T getinput() {
+T getInput() {
   static T input;
   return (std::cin >> input, std::cin.ignore(), input);
 }
@@ -37,7 +37,7 @@ class Solution {
 int main() {
   std::ios_base::sync_with_stdio(false);
   std::string line;
-  std::size_t N = getinput();
+  std::size_t N = getInput();
 
   for (size_t kk = 1; kk <= N; kk++) {
     Solution solution;
