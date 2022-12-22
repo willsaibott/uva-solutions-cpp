@@ -101,5 +101,8 @@
     "stop_token": "cpp",
     "syncstream": "cpp",
     "variant": "cpp"
-  }
+  },
+  "cSpell.words": [
+    "kase"
+  ]
 }
