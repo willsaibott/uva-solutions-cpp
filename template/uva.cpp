@@ -24,7 +24,7 @@ T getInput() {
   return (std::cin >> input, std::cin.ignore(), input);
 }
 
-inline const std::string& getln() {
+inline const std::string& getLine() {
   static std::string line;
   return (std::getline(std::cin, line), line);
 }
@@ -41,8 +41,8 @@ int main() {
 
   for (size_t kk = 1; kk <= N; kk++) {
     Solution solution;
-    std::cout << solution.solve() + "\n";
+    std::cout << solution.solve() << "\n";
   }
 
-  return(0);
+  return EXIT_SUCCESS;
 }
